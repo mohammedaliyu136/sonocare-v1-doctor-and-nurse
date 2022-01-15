@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "974587484228",
+    "firebase_url": "https://sonocare-51b1c-default-rtdb.firebaseio.com",
+    "project_id": "sonocare-51b1c",
+    "storage_bucket": "sonocare-51b1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974587484228:android:d0f4cb4865a70f130e8411",
+        "android_client_info": {
+          "package_name": "com.sonocare.doctor_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974587484228-ioei8r5ed8r1pi9vubjto9na0hgkbrg3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtKiLNUIoIyGBsj1_-Xg12e3Qv8PfHWAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974587484228-ioei8r5ed8r1pi9vubjto9na0hgkbrg3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

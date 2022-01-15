@@ -1,0 +1,52 @@
+//WalletRepo
+import 'package:doctor_v2/data/data_source/api_response.dart';
+import 'package:doctor_v2/data/data_source/remote.dart';
+import 'package:doctor_v2/data/model/account_model.dart';
+import 'package:doctor_v2/data/model/transaction_model.dart';
+import 'package:doctor_v2/utill/app_constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class WalletRepo{
+  final RemoteClient remoteClient;
+  final SharedPreferences sharedPreferences;
+  WalletRepo({required this.remoteClient, required this.sharedPreferences});
+
+  Future<ApiResponse> getTransactions({String token = ''}) async {
+    ///api/doctransactions
+    print('---------------------908');
+    try {
+      final response = await remoteClient.get(AppConstants.GET_TRANSACTION_HISTORY+'?token=${token}');//,data: _fields);
+      print(response.body);
+      return ApiResponse.withSuccess(response);
+    } catch (e) {
+      print(e.toString());
+      return ApiResponse.withError(e.toString());
+    }
+  }
+  Future<ApiResponse> updateAccount({String token = '',required AccountInfoModel accountInfo}) async {
+    ///api/doctransactions
+    print('---------------------908');
+    try {
+      final response = await remoteClient.post(AppConstants.DOCTOR_UPDATE_ACCOUNT_INFO+'${token}', data: accountInfo.toJson());//,data: _fields);
+
+      return ApiResponse.withSuccess(response);
+    } catch (e) {
+      print(e.toString());
+      return ApiResponse.withError(e.toString());
+    }
+  }
+
+  Future<ApiResponse> withDrawFunds({String token = '',required String amount}) async {
+    ///api/doctransactions
+    print('---------------------908');
+    try {
+      final response = await remoteClient.post(AppConstants.DOCTOR_WITHDRAW_FUNDS+'${token}', data: {"amount":amount});//,data: _fields);
+
+      return ApiResponse.withSuccess(response);
+    } catch (e) {
+      print(e.toString());
+      return ApiResponse.withError(e.toString());
+    }
+  }
+
+}
